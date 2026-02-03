@@ -1,5 +1,5 @@
 <template>
 	<div>
-		<p>Welcome to the homepage of Acme Corp!</p>	
+		<p>Welcome to this site.</p>	
 	</div>
 </template>
