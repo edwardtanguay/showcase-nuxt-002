@@ -11,9 +11,9 @@ onMounted(() => {
 	<div>
 		<h2>Fetch002</h2>
 		<div class="info">
-			<p>This is fetch001 but the API route sometimes sends an error and sometimes the data. It handles the error gracefully.</p>
-			<p>Notice that when there is an error, it is shown twice in the console log, this is because it tries twice.</p>
 			<ul class="dev">
+			<li>This is fetch001 but the API route sometimes sends an error and sometimes the data. It handles the error gracefully.</li>
+			<li>Notice that when there is an error, it is shown twice in the console log, this is because it tries twice.</li>
 				<li :class="`status-${status}`">Status: {{ status }}</li>
 			</ul>
 		</div>
