@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { data: tasks, status} = useFetch("/api/fetch003");
+const { data: tasks, status } = useFetch("/api/fetch003");
 </script>
 
 <template>
@@ -7,8 +7,10 @@ const { data: tasks, status} = useFetch("/api/fetch003");
 		<h2>Fetch003</h2>
 		<div class="info">
 			<ul class="dev">
-			<li>Notice that if you load this on a blank browser, it takes 2 seconds to appear. Fetch004 fixes this.</li>
-			<li>Notice that when there is an error, it is shown twice in the console log, this is because it tries twice.</li>
+				<li>Notice that if you load this on a blank browser, it takes 2 seconds to appear. Fetch004 fixes this.
+				</li>
+				<li>Notice that when there is an error, it is shown twice in the console log, this is because it tries
+					twice.</li>
 				<li :class="`status-${status}`">Status: {{ status }}</li>
 			</ul>
 		</div>
