@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { data: tasks, status, refresh } = useFetch("/api/fetch002", { lazy: true, server: false, immediate: false });
+const { data: tasks, status, refresh } = useFetch("/api/fetch002", { retry: 0 });
 
 onMounted(() => {
 	refresh();
@@ -12,8 +12,10 @@ onMounted(() => {
 		<h2>Fetch002</h2>
 		<div class="info">
 			<ul class="dev">
-			<li>This is fetch001 but the API route sometimes sends an error and sometimes the data. It handles the error gracefully.</li>
-			<li>Notice that when there is an error, it is shown twice in the console log, this is because it tries twice.</li>
+				<li>This is fetch001 but the API route sometimes sends an error and sometimes the data. It handles the
+					error gracefully.</li>
+				<li>Notice if we don't have <code>retry: 0</code> then it will try twice and always show two errors in
+					the console.log</li>
 				<li :class="`status-${status}`">Status: {{ status }}</li>
 			</ul>
 		</div>

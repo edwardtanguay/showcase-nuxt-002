@@ -18,6 +18,10 @@ ul.dev {
 	display: block;
 }
 
+code {
+	color: rgb(134, 82, 15);
+}
+
 .status-error { color: #ff5555 !important; }
 .status-success { color: #50fa7b !important; }
 .status-idle { color: #f1fa8c !important; }
