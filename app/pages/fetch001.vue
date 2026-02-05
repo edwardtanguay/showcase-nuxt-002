@@ -5,11 +5,12 @@ const { data: tasks } = useFetch("/api/fetch001");
 <template>
 	<div>
 		<h2>Fetch001</h2>
-		<p>
-			This is he simplest fetch, simply getting a static array of objects from the API route. Note that it
-			loads
-			fast and has no hydration errors.
-		</p>
+		<div class="info">
+			<p>
+				This is he simplest fetch, simply getting a static array of objects from the API route. Note that it
+				loads fast and has no hydration errors.
+			</p>
+		</div>
 		<article>
 			<ul>
 				<li v-for="task in tasks"

@@ -1,0 +1,20 @@
+/* app/styles/main.css */
+p {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+	margin-bottom: 0;
+}
+
+ul.dev {
+	font-family: monospace;
+	margin-top: .5rem;
+	color: orange;
+}
+
+.info {
+    margin-bottom: 1rem;
+	display: block;
+}

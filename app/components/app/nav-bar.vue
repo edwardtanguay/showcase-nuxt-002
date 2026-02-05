@@ -1,7 +1,7 @@
 <template>
 	<nav class="container">
 		<ul>
-			<li><strong>Tasks App</strong></li>
+			<li><strong>Nuxt Showcase</strong></li>
 		</ul>
 		<ul>
 			<li><NuxtLink :to="{ name: 'index' }">Home</NuxtLink></li>

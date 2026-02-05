@@ -10,10 +10,12 @@ onMounted(() => {
 <template>
 	<div>
 		<h2>Fetch002</h2>
-		<p>
-			This is a fetch that is not loaded on the server. It is loaded on the client.
-		</p>
-		<p>Status: {{ status }}</p>
+		<div class="info">
+			<p>This is a fetch that is not loaded on the server. It is loaded on the client.</p>
+			<ul class="dev">
+				<li>Status: {{ status }}</li>
+			</ul>
+		</div>
 		<article v-if="status === 'error'">
 			<p>Sorry, there was an error, please load the page again.</p>
 		</article>
