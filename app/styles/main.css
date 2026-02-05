@@ -18,3 +18,8 @@ ul.dev {
     margin-bottom: 1rem;
 	display: block;
 }
+
+.status-error { color: #ff5555 !important; }
+.status-success { color: #50fa7b !important; }
+.status-idle { color: #f1fa8c !important; }
+.status-pending { color: #8be9fd !important; }
