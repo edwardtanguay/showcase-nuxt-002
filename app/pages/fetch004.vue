@@ -1,13 +1,13 @@
 <script lang="ts" setup>
-const { data: tasks, status} = useFetch("/api/fetch003");
+const { data: tasks, status, refresh } = useFetch("/api/fetch004", { lazy: true, server: false, immediate: true });
 </script>
 
 <template>
 	<div>
-		<h2>Fetch003</h2>
+		<h2>Fetch004</h2>
 		<div class="info">
 			<ul class="dev">
-			<li>Notice that if you load this on a blank browser, it takes 2 seconds to appear. Fetch004 fixes this.</li>
+			<li>Note that unlike Fetch003, this page on a blank browser load will show the page without the loaded data immediately, then load it on the client, note this is with <code>{ lazy: true, server: false, immediate: false, retry: 0 }</code></li>
 			<li>Notice that when there is an error, it is shown twice in the console log, this is because it tries twice.</li>
 				<li :class="`status-${status}`">Status: {{ status }}</li>
 			</ul>
