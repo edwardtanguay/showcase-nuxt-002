@@ -11,7 +11,7 @@ onMounted(() => {
 	<div>
 		<h2>Fetch002</h2>
 		<div class="info">
-			<p>This is a fetch that is not loaded on the server. It is loaded on the client.</p>
+			<p>This is fetch001 but the API route sometimes sends an error and sometimes the data. It handles the error gracefully.</p>
 			<ul class="dev">
 				<li>Status: {{ status }}</li>
 			</ul>
