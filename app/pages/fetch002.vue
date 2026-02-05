@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { data: tasks, status, refresh } = useFetch("/api/fetch002", { lazy: true, server: false, immediate: false, retry: 0 });
+const { data: tasks, status, refresh } = useFetch("/api/fetch002", { lazy: true, server: false, immediate: false });
 
 onMounted(() => {
 	refresh();
