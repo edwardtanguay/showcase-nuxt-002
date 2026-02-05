@@ -9,9 +9,9 @@ const { data: tasks, status } = useFetch("/api/tasks", { lazy: true, server: fal
 				v-if="status === 'pending'"
 				aria-busy="true"
 			/>
-			<div 
+			<div
 				v-if="status === 'success'"
->
+			>
 				<h2>Tasks from API:</h2>
 				<ul>
 					<li
