@@ -1,4 +1,5 @@
 export default defineEventHandler(async (event) => {
+	await new Promise(resolve => setTimeout(resolve, 2000));
 	// Randomly return an error or the array (1 => array, 2 => error)
 	const n = Math.floor(Math.random() * 2) + 1;
 

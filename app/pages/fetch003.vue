@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { data: tasks, status, refresh } = useFetch("/api/fetch002", { lazy: true, server: false, immediate: false });
+const { data: tasks, status, refresh } = useFetch("/api/fetch003", { lazy: true, server: false, immediate: false, retry: 0 });
 
 onMounted(() => {
 	refresh();
@@ -9,11 +9,10 @@ onMounted(() => {
 
 <template>
 	<div>
-		<h2>Fetch002</h2>
+		<h2>Fetch003</h2>
 		<div class="info">
 			<ul class="dev">
 			<li>This is fetch001 but the API route sometimes sends an error and sometimes the data. It handles the error gracefully.</li>
-			<li>Notice the <code>{ lazy: true, server: false, immediate: false}</code></li>
 			<li>Notice that when there is an error, it is shown twice in the console log, this is because it tries twice.</li>
 				<li :class="`status-${status}`">Status: {{ status }}</li>
 			</ul>
