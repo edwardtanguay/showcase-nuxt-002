@@ -6,10 +6,12 @@ const { data: tasks } = useFetch("/api/fetch001");
 	<div>
 		<h2>Fetch001</h2>
 		<div class="info">
-			<p>
+			<ul class="dev">
+			<li>
 				This is he simplest fetch, simply getting a static array of objects from the API route. Note that it
 				loads fast and has no hydration errors.
-			</p>
+			</li>
+			</ul>
 		</div>
 		<article>
 			<ul>
