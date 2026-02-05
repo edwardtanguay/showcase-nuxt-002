@@ -1,4 +1,9 @@
 export default defineEventHandler(async () => {
+	await new Promise(resolve => setTimeout(resolve, 2000));
+	// return sendError(event, createError({
+	// 	statusCode: 500,
+	// 	message: "Something went wrong: ",
+	// }));
 	return [{
 		id: 1,
 		title: "Learn Nuxt",
