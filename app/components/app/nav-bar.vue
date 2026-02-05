@@ -4,8 +4,10 @@
 			<li><strong>Tasks App</strong></li>
 		</ul>
 		<ul>
-			<li><NuxtLink :to="{ name: 'index'}">Home</NuxtLink></li>
-			<li><NuxtLink :to="{ name: 'create'}">Create Task</NuxtLink></li>
+			<li><NuxtLink :to="{ name: 'index' }">Home</NuxtLink></li>
+			<li><NuxtLink :to="{ name: 'fetch001' }">Fetch001</NuxtLink></li>
+			<li><NuxtLink :to="{ name: 'fetch002' }">Fetch002</NuxtLink></li>
+			<li><NuxtLink :to="{ name: 'create' }">Create Task</NuxtLink></li>
 		</ul>
 	</nav>
 </template>
