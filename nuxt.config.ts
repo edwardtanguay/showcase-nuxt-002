@@ -2,8 +2,8 @@
 export default defineNuxtConfig({
 	modules: ["@nuxt/eslint"],
 	devtools: { enabled: true },
-	compatibilityDate: "2025-07-15",
 	css: ["@picocss/pico", "~/styles/main.css"],
+	compatibilityDate: "2025-07-15",
 	eslint: {
 		config: {
 			stylistic: {
