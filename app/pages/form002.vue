@@ -30,21 +30,17 @@ const submitForm = async () => {
 
 <template>
 	<div>
+		<p class="prefix">Type an id for a product between 1 and 5:</p>
 		<form @submit.prevent="submitForm">
-			<label for="num">Inserisci un numero tra 1 e 5:</label>
-			<input
-				id="num"
-				v-model.number="num"
-				type="number"
-				min="1"
-				max="5"
-				required
-				:disabled="isSubmitting"
-			>
-			<button
-				type="submit"
-				:disabled="isSubmitting"
-			>
+			<input id="num"
+				   v-model.number="num"
+				   type="number"
+				   min="1"
+				   max="5"
+				   required
+				   :disabled="isSubmitting">
+			<button type="submit"
+					:disabled="isSubmitting">
 				Invia
 			</button>
 		</form>
@@ -59,3 +55,18 @@ const submitForm = async () => {
 		</div>
 	</div>
 </template>
+<style scoped>
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	width: 10rem;
+}
+.prefix {
+	margin-bottom: 1rem;
+}	
+input {
+	text-align: center;
+	width: 5rem;
+}
+</style>
