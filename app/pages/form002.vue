@@ -15,9 +15,8 @@ const submitForm = async () => {
 		result.value = res;
 	}
 	catch (err: unknown) {
-		// Mostra messaggio di errore
-		const errorMessage = err instanceof Error ? err.message : typeof err === "object" && err !== null && "statusMessage" in err ? (err as any).statusMessage : "Qualcosa è andato storto";
-		result.value = "Errore: " + errorMessage;
+		const errorMessage = (err as { statusMessage?: string }).statusMessage || (err as Error).message || "Something unexpected happened.";
+		result.value = errorMessage;
 	}
 };
 </script>
