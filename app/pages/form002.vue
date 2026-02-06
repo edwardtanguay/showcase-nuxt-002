@@ -14,35 +14,38 @@ const submitForm = async () => {
 		});
 		result.value = res;
 	}
-	catch (err: any) {
+	catch (err: unknown) {
 		// Mostra messaggio di errore
-		result.value = "Errore: " + (err.statusMessage || err.message || "Qualcosa è andato storto");
+		const errorMessage = err instanceof Error ? err.message : typeof err === "object" && err !== null && "statusMessage" in err ? (err as any).statusMessage : "Qualcosa è andato storto";
+		result.value = "Errore: " + errorMessage;
 	}
 };
 </script>
 
 <template>
-	<form @submit.prevent="submitForm">
-		<label for="num">Inserisci un numero tra 1 e 5:</label>
-		<input
-			id="num"
-			v-model.number="num"
-			type="number"
-			min="1"
-			max="5"
-			required
-		>
-		<button type="submit">
-			Invia
-		</button>
-	</form>
+	<div>
+		<form @submit.prevent="submitForm">
+			<label for="num">Inserisci un numero tra 1 e 5:</label>
+			<input
+				id="num"
+				v-model.number="num"
+				type="number"
+				min="1"
+				max="5"
+				required
+			>
+			<button type="submit">
+				Invia
+			</button>
+		</form>
 
-	<div v-if="result">
-		<p v-if="typeof result === 'string'">
-			{{ result }}
-		</p>
-		<p v-else>
-			ID: {{ result.id }}, Name: {{ result.name }}
-		</p>
+		<div v-if="result">
+			<p v-if="typeof result === 'string'">
+				{{ result }}
+			</p>
+			<p v-else>
+				ID: {{ result.id }}, Name: {{ result.name }}
+			</p>
+		</div>
 	</div>
 </template>

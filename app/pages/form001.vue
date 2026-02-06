@@ -12,27 +12,30 @@ const submitForm = async () => {
 		});
 		outputText.value = res.text;
 	}
-	catch (err: any) {
-		outputText.value = "Errore: " + (err.message || "qualcosa è andato storto");
+	catch (err: unknown) {
+		const errorMessage = err instanceof Error ? err.message : "qualcosa è andato storto";
+		outputText.value = "Errore: " + errorMessage;
 	}
 };
 </script>
 
 <template>
-	<form @submit.prevent="submitForm">
-		<label for="inputText">Inserisci testo:</label>
-		<input
-			id="inputText"
-			v-model="inputText"
-			type="text"
-			required
-		>
-		<button type="submit">
-			Invia
-		</button>
-	</form>
+	<div>
+		<form @submit.prevent="submitForm">
+			<label for="inputText">Inserisci testo:</label>
+			<input
+				id="inputText"
+				v-model="inputText"
+				type="text"
+				required
+			>
+			<button type="submit">
+				Invia
+			</button>
+		</form>
 
-	<p v-if="outputText">
-		Testo in maiuscolo: {{ outputText }}
-	</p>
+		<p v-if="outputText">
+			Testo in maiuscolo: {{ outputText }}
+		</p>
+	</div>
 </template>
