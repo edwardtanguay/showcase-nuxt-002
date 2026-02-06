@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import type { TestProduct } from "../../shared/types";
 
 const num = ref<number | null>(null);
-const result = ref<string | object>("");
+const testProduct = ref<TestProduct | string>("");
 const isSubmitting = ref(false);
 
 const submitForm = async () => {
 	if (num.value === null) return;
 
-	result.value = "Loading...";
+	testProduct.value = "Loading...";
 
 	isSubmitting.value = true;
 	try {
@@ -16,11 +17,11 @@ const submitForm = async () => {
 			method: "POST",
 			body: { num: num.value },
 		});
-		result.value = res;
+		testProduct.value = res as TestProduct;
 	}
 	catch (err: unknown) {
 		const errorMessage = (err as { statusMessage?: string }).statusMessage || (err as Error).message || "Something unexpected happened.";
-		result.value = "Error: " + errorMessage;
+		testProduct.value = "Error: " + errorMessage;
 	}
 	finally {
 		isSubmitting.value = false;
@@ -30,7 +31,7 @@ const submitForm = async () => {
 
 <template>
 	<div>
-		<p class="prefix">Type an id for a product between 1 and 5:</p>
+		<p class="prefix">Type an id for a product between 1 and 5 (4 and 5 do not exist):</p>
 		<form @submit.prevent="submitForm">
 			<input id="num"
 				   v-model.number="num"
@@ -45,12 +46,12 @@ const submitForm = async () => {
 			</button>
 		</form>
 
-		<div v-if="result">
-			<p v-if="typeof result === 'string'">
-				{{ result }}
+		<div v-if="testProduct">
+			<p v-if="typeof testProduct === 'string'">
+				{{ testProduct }}
 			</p>
 			<p v-else>
-				ID: {{ result.id }}, Name: {{ result.name }}
+				ID: {{ testProduct.id }}, Name: {{ testProduct.name }}
 			</p>
 		</div>
 	</div>

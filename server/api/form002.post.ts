@@ -1,4 +1,5 @@
 import { defineEventHandler, readBody, createError } from "h3";
+import type { TestProduct } from "../../shared/types";
 
 export default defineEventHandler(async (event) => {
 	const random = Math.floor(Math.random() * 2) + 1;
@@ -10,7 +11,7 @@ export default defineEventHandler(async (event) => {
 	const body = await readBody(event);
 	const num: number = Number(body.num);
 
-	const testProducts = [
+	const testProducts: TestProduct[] = [
 		{ id: 1, name: "Product 1" },
 		{ id: 2, name: "Product 2" },
 		{ id: 3, name: "Product 3" },
@@ -22,5 +23,5 @@ export default defineEventHandler(async (event) => {
 		throw createError({ statusCode: 404, statusMessage: "Product not found" });
 	}
 
-	return obj;
+	return obj as TestProduct;
 });
