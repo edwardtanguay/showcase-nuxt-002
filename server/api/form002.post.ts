@@ -1,6 +1,7 @@
 import { defineEventHandler, readBody, createError } from "h3";
 
 export default defineEventHandler(async (event) => {
+	await new Promise(resolve => setTimeout(resolve, 2000));
 	const body = await readBody(event);
 	const num: number = Number(body.num);
 

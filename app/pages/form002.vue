@@ -7,6 +7,8 @@ const result = ref<string | object>("");
 const submitForm = async () => {
 	if (num.value === null) return;
 
+	result.value = "Loading...";
+
 	try {
 		const res = await $fetch("/api/form002", {
 			method: "POST",
