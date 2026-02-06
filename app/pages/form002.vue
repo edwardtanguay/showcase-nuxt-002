@@ -3,12 +3,14 @@ import { ref } from "vue";
 
 const num = ref<number | null>(null);
 const result = ref<string | object>("");
+const isSubmitting = ref(false);
 
 const submitForm = async () => {
 	if (num.value === null) return;
 
 	result.value = "Loading...";
 
+	isSubmitting.value = true;
 	try {
 		const res = await $fetch("/api/form002", {
 			method: "POST",
@@ -18,7 +20,10 @@ const submitForm = async () => {
 	}
 	catch (err: unknown) {
 		const errorMessage = (err as { statusMessage?: string }).statusMessage || (err as Error).message || "Something unexpected happened.";
-		result.value = errorMessage;
+		result.value = "Error: " + errorMessage;
+	}
+	finally {
+		isSubmitting.value = false;
 	}
 };
 </script>
@@ -34,8 +39,12 @@ const submitForm = async () => {
 				min="1"
 				max="5"
 				required
+				:disabled="isSubmitting"
 			>
-			<button type="submit">
+			<button
+				type="submit"
+				:disabled="isSubmitting"
+			>
 				Invia
 			</button>
 		</form>

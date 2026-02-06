@@ -13,7 +13,7 @@ export default defineEventHandler(async (event) => {
 
 	const random = Math.floor(Math.random() * 2) + 1;
 	if (random === 2) {
-		throw createError({ statusCode: 500, statusMessage: "Server error, try again" });
+		throw createError({ statusCode: 500, statusMessage: "Server not responding, try again" });
 	}
 
 	const obj = objects.find(o => o.id === num);
